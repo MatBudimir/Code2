@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,27 @@
     <link rel="stylesheet" href="bb.css">
     <script src="bb.js" defer></script>
 </head>
+
 <body>
     <canvas width="1920" height="1080"></canvas>
+    <span class="center-panel" id="center-panel">
+        <h1>BurgBallerer</h1>
+    </span>
+
+
+    <span class="left-panel" id="left-panel">
+        <button id="subAngleButton1"> - </button><span id="angle-player1"> #180 </span> <button id="addAngleButton1"> + </button><br>
+        <button> - </button><span> #0 </span> <button> + </button><br>
+        <button>Fire!</button>
+    </span>
+
+    <span class="right-panel" id="right-panel">
+        <span> ▼ </span><span> #180 </span> <span> ▲ </span><br>
+        <span> ◄ </span> <span> #180 </span><span> ► </span><br>
+        <span>Press "Enter" to Fire! </span>
+    </span>
+
+    <button id="restartButton">Restart</button>
 </body>
+
 </html>
