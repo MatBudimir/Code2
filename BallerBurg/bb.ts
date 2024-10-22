@@ -5,12 +5,16 @@ namespace BallerBurg {
 
     interface Cannon {
         player: boolean,
+        x: number,
+        y: number,
         angle: number,
         power: number,
     }
 
     function drawMap(): void {
-
+        const playerOnePosition: {x: number, y: number} = {x: 20, y: 24}
+        const playerTwoPosition: {x: number, y: number} = {x: 20, y: 24}
+        ctx.beginPath()
     }
 
     function drawCannons(): void {
