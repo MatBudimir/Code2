@@ -70,7 +70,7 @@ var OldMcDonald;
     stockpile.push(new Food("Fish", 10));
     stockpile.push(new Food("Bananas", 38));
     stockpile.push(new Food("Apples", 89));
-    stockpile.push(new Food("Cabbage", 19));
+    stockpile.push(new Food("Cabbages", 19));
     let i = 0;
     let j = 1;
     document.querySelector('#clock').innerHTML = "Day " + j;
