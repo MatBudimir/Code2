@@ -176,7 +176,7 @@ function handleKeyPress(_event: KeyboardEvent): void
     else { }
 }
 
-function loadHandler(_event: Event): void
+function loadHandler(): void
 {
     const restartButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("restartButton");
     restartButton.addEventListener("click", restartGame);
@@ -303,7 +303,7 @@ function fireCannon(_angle: number, _power: number, _isPlayer1: boolean): void
     moveBall();
 }
 
-function restartGame(_event: MouseEvent): void
+function restartGame(): void
 {
 
 }

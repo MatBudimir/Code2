@@ -125,7 +125,7 @@ function handleKeyPress(_event) {
     }
     else { }
 }
-function loadHandler(_event) {
+function loadHandler() {
     const restartButton = document.getElementById("restartButton");
     restartButton.addEventListener("click", restartGame);
     // Adjust Angle with Mousedown
@@ -215,6 +215,6 @@ function fireCannon(_angle, _power, _isPlayer1) {
     ball.flying = true;
     moveBall();
 }
-function restartGame(_event) {
+function restartGame() {
 }
 //# sourceMappingURL=bb.js.map
