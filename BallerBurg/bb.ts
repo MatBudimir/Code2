@@ -293,6 +293,27 @@ function fireCannon(_angle: number, _power: number, _isPlayer1: boolean): void {
     moveBall();
 }
 
+<<<<<<< HEAD
 function restartGame(): void {
+=======
+
+{
+function collisionBall (cannon: Cannon, ball: Ball): boolean{
+    return(
+        cannon.x < ball.x + 50 && // cannon links von ball
+        cannon.x + 50 > ball.x && // cannon rechts von ball
+        cannon.y < ball.y + 50 && // cannon oben von ball
+        cannon.y + 50 > ball.y // cannon unten von ball
+    );
+}
+if (collisionBall(cannon, ball)){
+    console.log("Player1 Wins");
+}
+
+}
+
+function restartGame(): void
+{
+>>>>>>> fb3e02f31fa8929459ef541bb300f34bfe7cc744
 
 }
