@@ -37,7 +37,7 @@ var OldMcDonald;
                 else if (stockpile[i].type === this.food && stockpile[i].amount < this.appetite) {
                     const foodtext = document.querySelector(`#food`);
                     foodtext.innerHTML = `Not enough ${this.food} left for ${this.name} to eat!`;
-                    document.querySelector(`#f${i}`).innerHTML = stockpile[i].consumption();
+                    document.querySelector(`#f${i}`).innerHTML = `${stockpile[i].type}: 0`;
                 }
             }
         }

@@ -54,7 +54,7 @@ namespace OldMcDonald
                 {
                     const foodtext: HTMLDivElement = document.querySelector(`#food`)!;
                     foodtext.innerHTML = `Not enough ${this.food} left for ${this.name} to eat!`;
-                    document.querySelector(`#f${i}`)!.innerHTML = stockpile[i].consumption();
+                    document.querySelector(`#f${i}`)!.innerHTML = `${stockpile[i].type}: 0`;
                 }
             }
         }
