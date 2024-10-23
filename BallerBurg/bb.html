@@ -10,22 +10,23 @@
 </head>
 
 <body>
-    <canvas width="1920" height="1080"></canvas>
-    <span class="center-panel" id="center-panel">
-        <h1>BurgBallerer</h1>
-    </span>
+    <canvas width="1920" height="925"></canvas>
+   
+        <!-- <span class="center-panel" id="center-panel">
+            <h1>BurgBallerer</h1>
+        </span> -->
 
 
     <span class="left-panel" id="left-panel">
-        <button id="subAngleButton1"> - </button><span id="angle-player1"> #180 </span> <button id="addAngleButton1"> + </button><br>
-        <button> - </button><span> #0 </span> <button> + </button><br>
-        <button>Fire!</button>
+        <button id="subAngleButton1"> ◄ </button><span id="angle-player1"> #180 </span> <button id="addAngleButton1"> ► </button><br>
+        <button id="subPowerButton1"> ◄ </button><span id="power-player1"> #0 </span> <button id="addPowerButton1"> ► </button><br>
+        <button id="fireButton1">Fire!</button>
     </span>
 
     <span class="right-panel" id="right-panel">
-        <span> ▼ </span><span> #180 </span> <span> ▲ </span><br>
-        <span> ◄ </span> <span> #180 </span><span> ► </span><br>
-        <span>Press "Enter" to Fire! </span>
+        <button id="subAngleButton2"> e </button><span id="angle-player2"> #180 </span><button id="addAngleButton2"> q </button><br>
+        <button id="subPowerButton2"> a </button> <span id="power-player2"> #180 </span><button id="addPowerButton2"> d </button><br>
+        <span>Press</span> <button id="fireButton2"> Enter </button> <span> to Fire! </span>
     </span>
 
     <button id="restartButton">Restart</button>
