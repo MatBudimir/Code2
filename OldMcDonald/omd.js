@@ -1,4 +1,5 @@
 "use strict";
+// Hello
 var OldMcDonald;
 (function (OldMcDonald) {
     // Classes

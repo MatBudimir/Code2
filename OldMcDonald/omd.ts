@@ -1,3 +1,4 @@
+// Hello
 namespace OldMcDonald
 {
     // Classes
@@ -127,4 +128,6 @@ namespace OldMcDonald
         document.querySelector('#clock')!.innerHTML = "Day " + j;
     });
     animals[i].update(stockpile);
+
+
 }
