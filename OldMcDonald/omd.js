@@ -81,7 +81,7 @@ var OldMcDonald;
     const nextButton = document.querySelector("#nextButton");
     nextButton.addEventListener("click", () => {
         i++;
-        if (i >= animals.length) {
+        if (i > animals.length) {
             i = 0;
             j++;
         }
