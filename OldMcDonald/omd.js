@@ -18,6 +18,13 @@ var OldMcDonald;
         }
     }
     class Food {
+        constructor(_type, _amount) {
+            this.set(_type, _amount);
+        }
+        set(_type, _amount) {
+            this.type = _type;
+            this.amount = _amount;
+        }
         consumtion(_type, _amount) {
         }
     }
@@ -27,5 +34,11 @@ var OldMcDonald;
     animals.push(new Animal("Kong", "Monkey", "Bananas", 7, "U-u A-a"));
     animals.push(new Animal("Stripey", "Zebra", "Apples", 5, "Hiyah"));
     animals.push(new Animal("Schnitzel", "Pig", "Cabbage", 3, "Oink"));
+    const stockpile = [];
+    stockpile.push(new Food("Bones", 24));
+    stockpile.push(new Food("Fish", 10));
+    stockpile.push(new Food("Bananas", 18));
+    stockpile.push(new Food("Apples", 99));
+    stockpile.push(new Food("Cabbage", 19));
 })(OldMcDonald || (OldMcDonald = {}));
 //# sourceMappingURL=omd.js.map

@@ -1,5 +1,5 @@
 namespace OldMcDonald {
-    
+
     class Animal {
         public name: string;
         public type: string;
@@ -28,10 +28,18 @@ namespace OldMcDonald {
         }
     }
 
-
     class Food {
         type: string;
         amount: number;
+
+        public constructor(_type: string, _amount: number) {
+            this.set(_type, _amount);
+        }
+
+        public set(_type: string, _amount: number): void {
+            this.type = _type;
+            this.amount = _amount;
+        }
 
         consumtion(_type: string, _amount: number): void {
 
@@ -44,4 +52,11 @@ namespace OldMcDonald {
     animals.push(new Animal("Kong", "Monkey", "Bananas", 7, "U-u A-a"));
     animals.push(new Animal("Stripey", "Zebra", "Apples", 5, "Hiyah"));
     animals.push(new Animal("Schnitzel", "Pig", "Cabbage", 3, "Oink"))
+
+    const stockpile: Array<Food> = [];
+    stockpile.push(new Food("Bones", 24));
+    stockpile.push(new Food("Fish", 10));
+    stockpile.push(new Food("Bananas", 18));
+    stockpile.push(new Food("Apples", 99));
+    stockpile.push(new Food("Cabbage", 19));
 }
