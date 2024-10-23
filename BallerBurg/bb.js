@@ -119,7 +119,7 @@ function handleKeyPress(_event) {
         const subPowerButton2 = document.getElementById("subPowerButton2");
         subPowerButton2.click();
     }
-    else if (_event.key === 't') {
+    else if (_event.key === 'f') {
         const fireButton2 = document.getElementById("fireButton2");
         fireButton2.click();
     }
@@ -217,3 +217,4 @@ function fireCannon(_angle, _power, _isPlayer1) {
 }
 function restartGame(_event) {
 }
+//# sourceMappingURL=bb.js.map

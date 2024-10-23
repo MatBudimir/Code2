@@ -168,7 +168,7 @@ function handleKeyPress(_event: KeyboardEvent): void
         const subPowerButton2: HTMLButtonElement = document.getElementById("subPowerButton2") as HTMLButtonElement;
         subPowerButton2.click();
     }
-    else if (_event.key === 't')
+    else if (_event.key === 'f')
     {
         const fireButton2: HTMLButtonElement = document.getElementById("fireButton2") as HTMLButtonElement;
         fireButton2.click();
