@@ -23,6 +23,9 @@ var OldMcDonald;
     }
     const animals = [];
     animals.push(new Animal("Barky", "Dog", "Bones", 2, "Woof"));
-    console.log(animals[0]);
+    animals.push(new Animal("Snowball", "Cat", "Fish", 1, "Meow"));
+    animals.push(new Animal("Kong", "Monkey", "Bananas", 7, "U-u A-a"));
+    animals.push(new Animal("Stripey", "Zebra", "Apples", 5, "Hiyah"));
+    animals.push(new Animal("Schnitzel", "Pig", "Cabbage", 3, "Oink"));
 })(OldMcDonald || (OldMcDonald = {}));
 //# sourceMappingURL=omd.js.map
