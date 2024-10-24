@@ -31,17 +31,12 @@ body {
     font-size: 100%;
     font-weight: 500;
     line-height: 24px;
-    margin: 0;
     outline: 2px solid transparent;
     padding: 2rem 1.5rem;
     text-align: center;
-    text-transform: none;
     transition: all .1s cubic-bezier(.4, 0, .2, 1);
-    user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
-    --s: 20px;
 }
 
 #name {
@@ -60,17 +55,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 120%;
     font-weight: 700;
-    margin: 0;
     outline: 2px solid transparent;
     padding: 1.5%;
     text-align: center;
-    text-transform: none;
     transition: all .1s cubic-bezier(.4, 0, .2, 1);
-    user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
-    --s: 20px;
 }
 
 #lyrics {
@@ -90,17 +80,12 @@ body {
     font-size: 100%;
     font-weight: 500;
     line-height: 24px;
-    margin: 0;
     outline: 2px solid transparent;
     padding: 2rem 1.5rem;
     text-align: center;
-    text-transform: none;
     transition: all .1s cubic-bezier(.4, 0, .2, 1);
-    user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
-    --s: 20px;
 }
 
 #food {
@@ -120,17 +105,12 @@ body {
     font-size: 100%;
     font-weight: 500;
     line-height: 24px;
-    margin: 0;
     outline: 2px solid transparent;
     padding: 2rem 1.5rem;
     text-align: center;
-    text-transform: none;
     transition: all .1s cubic-bezier(.4, 0, .2, 1);
-    user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
-    --s: 20px;
 }
 
 #clock {
@@ -154,13 +134,9 @@ body {
     outline: 2px solid transparent;
     padding: 1.5%;
     text-align: center;
-    text-transform: none;
     transition: all .1s cubic-bezier(.4, 0, .2, 1);
-    user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
-    --s: 20px;
 }
 
 #nextButton{
@@ -180,17 +156,12 @@ body {
     font-size: 100%;
     font-weight: 500;
     line-height: 9px;
-    margin: 0;
     outline: 1px solid transparent;
     padding: 1rem 1.5rem;
     text-align: center;
-    text-transform: none;
     transition: all .1s cubic-bezier(.4, 0, .2, 1);
-    user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
-    --s: 20px;
 }
 
 #nextButton:hover{
