@@ -1,22 +1,18 @@
 // Hello
-namespace OldMcDonald
-{
+namespace OldMcDonald {
     // Classes
-    class Animal
-    {
+    class Animal {
         public name: string;
         public type: string;
         public food: string;
         public appetite: number;
         public sound: string;
 
-        public constructor(_name: string, _type: string, _food: string, _appetite: number, _sound: string)
-        {
+        public constructor(_name: string, _type: string, _food: string, _appetite: number, _sound: string) {
             this.set(_name, _type, _food, _appetite, _sound);
         }
 
-        public set(_name: string, _type: string, _food: string, _appetite: number, _sound: string): void
-        {
+        public set(_name: string, _type: string, _food: string, _appetite: number, _sound: string): void {
             this.name = _name;
             this.type = _type;
             this.food = _food;
@@ -24,8 +20,7 @@ namespace OldMcDonald
             this.sound = _sound;
         }
 
-        public sing(): void
-        {
+        public sing(): void {
             const nameplate: HTMLDivElement = document.querySelector("#name")!;
             nameplate.innerHTML = `${this.name}`;
 
@@ -40,19 +35,15 @@ namespace OldMcDonald
             Old MacDonald had a farm. E-I-E-I-O.`;
         }
 
-        public eat(_stockpile: Array<Food>): void
-        {
-            for (let i: number = 0; i < stockpile.length; i++)
-            {
-                if (stockpile[i].type === this.food && stockpile[i].amount >= this.appetite)
-                {
+        public eat(_stockpile: Array<Food>): void {
+            for (let i: number = 0; i < stockpile.length; i++) {
+                if (stockpile[i].type === this.food && stockpile[i].amount >= this.appetite) {
                     stockpile[i].amount -= this.appetite;
                     const foodtext: HTMLDivElement = document.querySelector(`#food`)!;
                     foodtext.innerHTML = `${this.name} the ${this.type} ate ${this.appetite} ${this.food}.`;
                     document.querySelector(`#f${i}`)!.innerHTML = stockpile[i].consumption();
 
-                } else if (stockpile[i].type === this.food && stockpile[i].amount < this.appetite)
-                {
+                } else if (stockpile[i].type === this.food && stockpile[i].amount < this.appetite) {
                     const foodtext: HTMLDivElement = document.querySelector(`#food`)!;
                     foodtext.innerHTML = `Not enough ${this.food} left for ${this.name} to eat!`;
                     document.querySelector(`#f${i}`)!.innerHTML = `${stockpile[i].type}: 0`;
@@ -60,31 +51,26 @@ namespace OldMcDonald
             }
         }
 
-        public update(_stockpile: Array<Food>): void
-        {
+        public update(_stockpile: Array<Food>): void {
             this.eat(_stockpile);
             this.sing();
-        } 
+        }
     }
 
-    class Food
-    {
+    class Food {
         type: string;
         amount: number;
 
-        public constructor(_type: string, _amount: number)
-        {
+        public constructor(_type: string, _amount: number) {
             this.set(_type, _amount);
         }
 
-        public set(_type: string, _amount: number): void
-        {
+        public set(_type: string, _amount: number): void {
             this.type = _type;
             this.amount = _amount;
         }
 
-        consumption(): string
-        {
+        consumption(): string {
             return `${this.type}: ${this.amount}`;
         }
     }
@@ -109,23 +95,22 @@ namespace OldMcDonald
 
     document.querySelector('#clock')!.innerHTML = "Day " + j;
 
-    for (let i:number = 0; i < stockpile.length; i++)
-    {
+    for (let i: number = 0; i < stockpile.length; i++) {
         document.querySelector(`#f${i}`)!.innerHTML = stockpile[i].consumption();
     }
 
     // Game Loop
     const nextButton: HTMLButtonElement = document.querySelector("#nextButton")!;
-    nextButton.addEventListener("click", () =>
-    {
+    nextButton.addEventListener("click", handleButtonClick);
+
+    function handleButtonClick(): void {
         i++;
-        if (i >= animals.length)
-        {
+        if (i >= animals.length) {
             i = 0;
             j++;
         }
         animals[i].update(stockpile);
         document.querySelector('#clock')!.innerHTML = "Day " + j;
-    });
+    }
     animals[i].update(stockpile);
 }

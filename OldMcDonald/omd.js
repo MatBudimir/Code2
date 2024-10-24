@@ -80,7 +80,8 @@ var OldMcDonald;
     }
     // Game Loop
     const nextButton = document.querySelector("#nextButton");
-    nextButton.addEventListener("click", () => {
+    nextButton.addEventListener("click", handleButtonClick);
+    function handleButtonClick() {
         i++;
         if (i >= animals.length) {
             i = 0;
@@ -88,7 +89,7 @@ var OldMcDonald;
         }
         animals[i].update(stockpile);
         document.querySelector('#clock').innerHTML = "Day " + j;
-    });
+    }
     animals[i].update(stockpile);
 })(OldMcDonald || (OldMcDonald = {}));
 //# sourceMappingURL=omd.js.map
