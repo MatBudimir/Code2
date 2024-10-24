@@ -75,6 +75,7 @@ var OldMcDonald;
     let i = 0;
     let j = 1;
     document.querySelector('#clock').innerHTML = "Day " + j;
+    animals[i].update(stockpile);
     for (let i = 0; i < stockpile.length; i++) {
         document.querySelector(`#f${i}`).innerHTML = stockpile[i].consumption();
     }
@@ -90,6 +91,5 @@ var OldMcDonald;
         animals[i].update(stockpile);
         document.querySelector('#clock').innerHTML = "Day " + j;
     }
-    animals[i].update(stockpile);
 })(OldMcDonald || (OldMcDonald = {}));
 //# sourceMappingURL=omd.js.map

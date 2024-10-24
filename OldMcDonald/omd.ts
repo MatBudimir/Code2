@@ -94,6 +94,7 @@ namespace OldMcDonald {
     let j: number = 1;
 
     document.querySelector('#clock')!.innerHTML = "Day " + j;
+    animals[i].update(stockpile);
 
     for (let i: number = 0; i < stockpile.length; i++) {
         document.querySelector(`#f${i}`)!.innerHTML = stockpile[i].consumption();
@@ -112,5 +113,4 @@ namespace OldMcDonald {
         animals[i].update(stockpile);
         document.querySelector('#clock')!.innerHTML = "Day " + j;
     }
-    animals[i].update(stockpile);
 }
