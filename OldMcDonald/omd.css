@@ -121,7 +121,7 @@ body {
     width: 12%;
     height: 8%;
     border-width: 0.5em;
-    background-color: darkslategrey;
+    background-color: rgb(83, 116, 116);
     border-radius: .5rem;
     box-sizing: border-box;
     color: whitesmoke;
