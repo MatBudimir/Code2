@@ -119,7 +119,7 @@ namespace OldMcDonald
     nextButton.addEventListener("click", () =>
     {
         i++;
-        if (i > animals.length)
+        if (i >= animals.length)
         {
             i = 0;
             j++;

@@ -36,7 +36,4 @@ and animal eats
 		display remaining amount (div)
 (/Loop)
 
-next day starts
-
-----------------------
-
+next day start
