@@ -17,21 +17,26 @@ class food
 type: string,
 amount: number,
 
-consumtion(_type, _amount): void
+consumption(_type, _amount): void
 
 ----------------------
 
 start
 create animals
 create food
+display food
+
+(Loop)
 (for every animal) animal sings
 	> TextBox (div)
 		display Name (div),
 		display Text (div),
-animal eats
+and animal eats
 	> Viewport (span)
 		display remaining amount (div)
-end
+(/Loop)
+
+next day starts
 
 ----------------------
 
