@@ -22,14 +22,18 @@ class Animal {
     }
 
     eat(): number {
-        food[stable[i].food] -= this.hunger;
-        console.log(food[i]);
+        if (food[this.food] >= this.hunger) {
+            food[this.food] -= this.hunger;
+        }
+        else {
+            food[this.food] = 0;
+        }
+        console.log(food[this.food]);
         return this.food;
     }
 }
 
-const days: number = 1;
-let i: number = 0;
+const days: number = 7;
 let load: boolean = false;
 
 const food: number[] = [10, 15, 17, 23, 32];
@@ -52,15 +56,16 @@ function handleLoad(): void {
 
 function simulate(): void {
     if (load === true) {
-        for (let j: number = 0; j < days; j++) {
+        for (let i: number = 0; i < days; i++) {
+            const day: number = i + 1;
+            console.log("Day:" + day)
             for (let j: number = 0; j < stable.length; j++) {
 
-                stable[i].alert();
-                stable[i].eat();
-                i++
-                if (food[i] <= 0) {
-                    load = false;
-                }
+                stable[j].alert();
+                stable[j].eat();
+            }
+            if (food[i] === 0) {
+                return;
             }
         }
     }

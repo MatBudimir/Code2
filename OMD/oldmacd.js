@@ -14,13 +14,17 @@ class Animal {
         return this.noise;
     }
     eat() {
-        food[stable[i].food] -= this.hunger;
-        console.log(food[i]);
+        if (food[this.food] >= this.hunger) {
+            food[this.food] -= this.hunger;
+        }
+        else {
+            food[this.food] = 0;
+        }
+        console.log(food[this.food]);
         return this.food;
     }
 }
-const days = 1;
-let i = 0;
+const days = 7;
 let load = false;
 const food = [10, 15, 17, 23, 32];
 const stable = [];
@@ -37,14 +41,15 @@ function handleLoad() {
 }
 function simulate() {
     if (load === true) {
-        for (let j = 0; j < days; j++) {
+        for (let i = 0; i < days; i++) {
+            const day = i + 1;
+            console.log("Day:" + day);
             for (let j = 0; j < stable.length; j++) {
-                stable[i].alert();
-                stable[i].eat();
-                i++;
-                if (food[i] <= 0) {
-                    load = false;
-                }
+                stable[j].alert();
+                stable[j].eat();
+            }
+            if (food[i] === 0) {
+                return;
             }
         }
     }
