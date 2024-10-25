@@ -50,11 +50,6 @@ namespace OldMcDonald {
                 }
             }
         }
-
-        public update(): void {
-            this.eat();
-            this.sing();
-        }
     }
 
     class Food {
@@ -94,7 +89,8 @@ namespace OldMcDonald {
     let j: number = 1;
 
     document.querySelector('#clock')!.innerHTML = "Day " + j;
-    animals[i].update();
+    animals[i].eat();
+    animals[i].sing();
 
     for (let i: number = 0; i < stockpile.length; i++) {
         document.querySelector(`#f${i}`)!.innerHTML = stockpile[i].consumption();
@@ -110,7 +106,8 @@ namespace OldMcDonald {
             i = 0;
             j++;
         }
-        animals[i].update();
+        animals[i].eat();
+        animals[i].sing();
         document.querySelector('#clock')!.innerHTML = "Day " + j;
     }
 }

@@ -42,10 +42,6 @@ var OldMcDonald;
                 }
             }
         }
-        update() {
-            this.eat();
-            this.sing();
-        }
     }
     class Food {
         constructor(_type, _amount) {
@@ -75,7 +71,8 @@ var OldMcDonald;
     let i = 0;
     let j = 1;
     document.querySelector('#clock').innerHTML = "Day " + j;
-    animals[i].update();
+    animals[i].eat();
+    animals[i].sing();
     for (let i = 0; i < stockpile.length; i++) {
         document.querySelector(`#f${i}`).innerHTML = stockpile[i].consumption();
     }
@@ -88,7 +85,8 @@ var OldMcDonald;
             i = 0;
             j++;
         }
-        animals[i].update();
+        animals[i].eat();
+        animals[i].sing();
         document.querySelector('#clock').innerHTML = "Day " + j;
     }
 })(OldMcDonald || (OldMcDonald = {}));
