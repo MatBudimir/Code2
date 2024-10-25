@@ -27,7 +27,7 @@ var OldMcDonald;
             Everywhere an ${this.sound} ${this.sound}. <br>
             Old MacDonald had a farm. E-I-E-I-O.`;
         }
-        eat(_stockpile) {
+        eat() {
             for (let i = 0; i < stockpile.length; i++) {
                 if (stockpile[i].type === this.food && stockpile[i].amount >= this.appetite) {
                     stockpile[i].amount -= this.appetite;
@@ -42,8 +42,8 @@ var OldMcDonald;
                 }
             }
         }
-        update(_stockpile) {
-            this.eat(_stockpile);
+        update() {
+            this.eat();
             this.sing();
         }
     }
@@ -75,20 +75,20 @@ var OldMcDonald;
     let i = 0;
     let j = 1;
     document.querySelector('#clock').innerHTML = "Day " + j;
-    animals[i].update(stockpile);
+    animals[i].update();
     for (let i = 0; i < stockpile.length; i++) {
         document.querySelector(`#f${i}`).innerHTML = stockpile[i].consumption();
     }
     // Game Loop
     const nextButton = document.querySelector("#nextButton");
-    nextButton.addEventListener("click", handleButtonClick);
-    function handleButtonClick() {
+    nextButton.addEventListener("click", handleNextButton);
+    function handleNextButton() {
         i++;
         if (i >= animals.length) {
             i = 0;
             j++;
         }
-        animals[i].update(stockpile);
+        animals[i].update();
         document.querySelector('#clock').innerHTML = "Day " + j;
     }
 })(OldMcDonald || (OldMcDonald = {}));

@@ -35,7 +35,7 @@ namespace OldMcDonald {
             Old MacDonald had a farm. E-I-E-I-O.`;
         }
 
-        public eat(_stockpile: Array<Food>): void {
+        public eat(): void {
             for (let i: number = 0; i < stockpile.length; i++) {
                 if (stockpile[i].type === this.food && stockpile[i].amount >= this.appetite) {
                     stockpile[i].amount -= this.appetite;
@@ -51,8 +51,8 @@ namespace OldMcDonald {
             }
         }
 
-        public update(_stockpile: Array<Food>): void {
-            this.eat(_stockpile);
+        public update(): void {
+            this.eat();
             this.sing();
         }
     }
@@ -94,7 +94,7 @@ namespace OldMcDonald {
     let j: number = 1;
 
     document.querySelector('#clock')!.innerHTML = "Day " + j;
-    animals[i].update(stockpile);
+    animals[i].update();
 
     for (let i: number = 0; i < stockpile.length; i++) {
         document.querySelector(`#f${i}`)!.innerHTML = stockpile[i].consumption();
@@ -102,15 +102,15 @@ namespace OldMcDonald {
 
     // Game Loop
     const nextButton: HTMLButtonElement = document.querySelector("#nextButton")!;
-    nextButton.addEventListener("click", handleButtonClick);
+    nextButton.addEventListener("click", handleNextButton);
 
-    function handleButtonClick(): void {
+    function handleNextButton(): void {
         i++;
         if (i >= animals.length) {
             i = 0;
             j++;
         }
-        animals[i].update(stockpile);
+        animals[i].update();
         document.querySelector('#clock')!.innerHTML = "Day " + j;
     }
 }
