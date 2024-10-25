@@ -10,7 +10,7 @@ class Animal {
         this.hunger = _hunger;
     }
     alert() {
-        return `${stable[i].noise}`;
+        return stable[i].noise.toString();
     }
     eat(_food) {
         stable[i].food[i] -= this.hunger;
