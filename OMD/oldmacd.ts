@@ -16,11 +16,14 @@ class Animal {
     }
 
     alert(): string {
+        console.log(this.noise);
         return this.noise;
+
     }
 
     eat(): number {
-        stable[i].food -= this.hunger;
+        food[stable[i].food] -= this.hunger;
+        console.log(food[i]);
         return this.food;
     }
 }
@@ -51,9 +54,10 @@ function simulate(): void {
     if (load === true) {
         for (let j: number = 0; j < days; j++) {
             for (let j: number = 0; j < stable.length; j++) {
-                i++
+
                 stable[i].alert();
                 stable[i].eat();
+                i++
                 if (food[i] <= 0) {
                     load = false;
                 }

@@ -10,10 +10,12 @@ class Animal {
         this.hunger = _hunger;
     }
     alert() {
+        console.log(this.noise);
         return this.noise;
     }
     eat() {
-        stable[i].food -= this.hunger;
+        food[stable[i].food] -= this.hunger;
+        console.log(food[i]);
         return this.food;
     }
 }
@@ -37,9 +39,9 @@ function simulate() {
     if (load === true) {
         for (let j = 0; j < days; j++) {
             for (let j = 0; j < stable.length; j++) {
-                i++;
                 stable[i].alert();
                 stable[i].eat();
+                i++;
                 if (food[i] <= 0) {
                     load = false;
                 }
