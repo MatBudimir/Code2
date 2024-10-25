@@ -16,7 +16,14 @@ class Animal {
     }
 
     alert(): string {
-        console.log(this.noise);
+        console.log(`Old MacDonald had a farm. E-I-E-I-O. <br>
+            And on that farm he had a ${this.type}. E-I-E-I-O. <br>
+            With an ${this.noise} ${this.noise} here. <br>
+            And an ${this.noise} ${this.noise} there. <br>
+            Here an ${this.noise}. <br>
+            There an ${this.noise}. <br>
+            Everywhere an ${this.noise} ${this.noise}. <br>
+            Old MacDonald had a farm. E-I-E-I-O.`);
         return this.noise;
 
     }
@@ -36,7 +43,7 @@ class Animal {
 const days: number = 7;
 let load: boolean = false;
 
-const food: number[] = [10, 15, 17, 23, 32];
+const food: number[] = [10, 15, 17, 22, 32];
 
 const stable: Animal[] = [];
 stable.push(new Animal("Dog", 0, "woof", 2));
