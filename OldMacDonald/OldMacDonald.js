@@ -2,7 +2,7 @@
 <<<<<<< HEAD
 // Hello
 var OldMcDonald;
-(function (OldMcDonald) {
+(function (OldMacDonald) {
     // Classes
     class Animal {
         constructor(_name, _type, _food, _appetite, _sound) {

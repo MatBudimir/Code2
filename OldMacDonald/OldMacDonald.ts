@@ -1,5 +1,5 @@
 // Hello
-namespace OldMcDonald {
+namespace OldMacDonald {
     // Classes
     class Animal {
         public name: string;
