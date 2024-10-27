@@ -1,24 +1,30 @@
-"use strict";
-<<<<<<< HEAD
 // Hello
-var OldMcDonald;
-(function (OldMcDonald) {
+namespace OldMcDonald {
     // Classes
     class Animal {
-        constructor(_name, _type, _food, _appetite, _sound) {
+        public name: string;
+        public type: string;
+        public food: string;
+        public appetite: number;
+        public sound: string;
+
+        public constructor(_name: string, _type: string, _food: string, _appetite: number, _sound: string) {
             this.set(_name, _type, _food, _appetite, _sound);
         }
-        set(_name, _type, _food, _appetite, _sound) {
+
+        public set(_name: string, _type: string, _food: string, _appetite: number, _sound: string): void {
             this.name = _name;
             this.type = _type;
             this.food = _food;
             this.appetite = _appetite;
             this.sound = _sound;
         }
-        sing() {
-            const nameplate = document.querySelector("#name");
+
+        public sing(): void {
+            const nameplate: HTMLDivElement = document.querySelector("#name")!;
             nameplate.innerHTML = `${this.name}`;
-            const lyrics = document.querySelector("#lyrics");
+
+            const lyrics: HTMLDivElement = document.querySelector("#lyrics")!;
             lyrics.innerHTML = `Old MacDonald had a farm. E-I-E-I-O. <br>
             And on that farm he had a ${this.type}. E-I-E-I-O. <br>
             With an ${this.sound} ${this.sound} here. <br>
@@ -28,59 +34,73 @@ var OldMcDonald;
             Everywhere an ${this.sound} ${this.sound}. <br>
             Old MacDonald had a farm. E-I-E-I-O.`;
         }
-        eat() {
-            for (let i = 0; i < stockpile.length; i++) {
+
+        public eat(): void {
+            for (let i: number = 0; i < stockpile.length; i++) {
                 if (stockpile[i].type === this.food && stockpile[i].amount >= this.appetite) {
                     stockpile[i].amount -= this.appetite;
-                    const foodtext = document.querySelector(`#food`);
+                    const foodtext: HTMLDivElement = document.querySelector(`#food`)!;
                     foodtext.innerHTML = `${this.name} the ${this.type} ate ${this.appetite} ${this.food}.`;
-                    document.querySelector(`#f${i}`).innerHTML = stockpile[i].consumption();
-                }
-                else if (stockpile[i].type === this.food && stockpile[i].amount < this.appetite) {
-                    const foodtext = document.querySelector(`#food`);
+                    document.querySelector(`#f${i}`)!.innerHTML = stockpile[i].consumption();
+
+                } else if (stockpile[i].type === this.food && stockpile[i].amount < this.appetite) {
+                    const foodtext: HTMLDivElement = document.querySelector(`#food`)!;
                     foodtext.innerHTML = `Not enough ${this.food} left for ${this.name} to eat!`;
-                    document.querySelector(`#f${i}`).innerHTML = `${stockpile[i].type}: 0`;
+                    document.querySelector(`#f${i}`)!.innerHTML = `${stockpile[i].type}: 0`;
                 }
             }
         }
     }
+
     class Food {
-        constructor(_type, _amount) {
+        type: string;
+        amount: number;
+
+        public constructor(_type: string, _amount: number) {
             this.set(_type, _amount);
         }
-        set(_type, _amount) {
+
+        public set(_type: string, _amount: number): void {
             this.type = _type;
             this.amount = _amount;
         }
-        consumption() {
+
+        consumption(): string {
             return `${this.type}: ${this.amount}`;
         }
     }
+
     // Game Initial Setup
-    const animals = [];
+    const animals: Array<Animal> = [];
     animals.push(new Animal("Barky", "Dog", "Bones", 2, "woof"));
     animals.push(new Animal("Snowball", "Cat", "Fish", 1, "meow"));
     animals.push(new Animal("Kong", "Monkey", "Bananas", 7, "u-u a-a"));
     animals.push(new Animal("Stripey", "Zebra", "Apples", 5, "hiyah"));
     animals.push(new Animal("Schnitzel", "Pig", "Cabbages", 3, "oink"));
-    const stockpile = [];
+
+    const stockpile: Array<Food> = [];
     stockpile.push(new Food("Bones", 24));
     stockpile.push(new Food("Fish", 10));
     stockpile.push(new Food("Bananas", 38));
     stockpile.push(new Food("Apples", 89));
     stockpile.push(new Food("Cabbages", 19));
-    let i = 0;
-    let j = 1;
-    document.querySelector('#clock').innerHTML = "Day " + j;
+
+    let i: number = 0;
+    let j: number = 1;
+
+    document.querySelector('#clock')!.innerHTML = "Day " + j;
     animals[i].eat();
     animals[i].sing();
-    for (let i = 0; i < stockpile.length; i++) {
-        document.querySelector(`#f${i}`).innerHTML = stockpile[i].consumption();
+
+    for (let i: number = 0; i < stockpile.length; i++) {
+        document.querySelector(`#f${i}`)!.innerHTML = stockpile[i].consumption();
     }
+
     // Game Loop
-    const nextButton = document.querySelector("#nextButton");
+    const nextButton: HTMLButtonElement = document.querySelector("#nextButton")!;
     nextButton.addEventListener("click", handleNextButton);
-    function handleNextButton() {
+
+    function handleNextButton(): void {
         i++;
         if (i >= animals.length) {
             i = 0;
@@ -88,29 +108,6 @@ var OldMcDonald;
         }
         animals[i].eat();
         animals[i].sing();
-        document.querySelector('#clock').innerHTML = "Day " + j;
+        document.querySelector('#clock')!.innerHTML = "Day " + j;
     }
-})(OldMcDonald || (OldMcDonald = {}));
-//# sourceMappingURL=omd.js.map
-=======
-var OldMacDonald;
-(function (OldMacDonald) {
-    class Animal {
-        constructor(_name, _type, _food, _sound, _appetite) {
-            this.set(_name, _type, _food, _sound, _appetite);
-        }
-        set(_name, _type, _food, _sound, _appetite) {
-            this.name = _name;
-            this.type = _type;
-            this.food = _food;
-            this.sound = _sound;
-            this.appetite = _appetite;
-        }
-        eat(_type, _food, _sound, _appetite) {
-        }
-        sing(_name, _sound) {
-        }
-    }
-})(OldMacDonald || (OldMacDonald = {}));
-//# sourceMappingURL=OldMacDonald.js.map
->>>>>>> 7f4bea48b4c97fe2cfe6a39c93b1aeb4a0df70b2
+}

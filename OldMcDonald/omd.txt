@@ -1,0 +1,39 @@
+class animal
+
+Name: string,
+Type: string,
+Food: string,
+Appetite: number,
+Sound: string,
+
+
+eat(_type, _food, _appetite): void
+sing(_name, _sound): void
+
+----------------------
+
+class food
+
+type: string,
+amount: number,
+
+consumption(_type, _amount): void
+
+----------------------
+
+start
+create animals
+create food
+display food
+
+(Loop)
+(for every animal) animal sings
+	> TextBox (div)
+		display Name (div),
+		display Text (div),
+and animal eats
+	> Viewport (span)
+		display remaining amount (div)
+(/Loop)
+
+next day start

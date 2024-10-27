@@ -1,6 +1,36 @@
 "use strict";
 const canvas = document.getElementsByTagName("canvas")[0];
 const ctx = canvas.getContext("2d");
+window.addEventListener("load", loadHandler);
+window.addEventListener("keydown", handleKeyPress);
+// Player Starting Position on the Y axis.
+const playerOnePosition = 930 - Math.random() * 215 - 35;
+const playerTwoPosition = 930 - Math.random() * 215 - 35;
+// Player 1
+const cannon1 = {
+    player: true,
+    x: 100,
+    y: 930 - Math.random() * 215 - 35,
+    angle: 45,
+    power: 10,
+};
+// Player 2
+const cannon2 = {
+    player: false,
+    x: 1820,
+    y: 930 - Math.random() * 215 - 35,
+    angle: 45,
+    power: 10,
+};
+const ball = {
+    player: true,
+    x: 100,
+    y: playerOnePosition - 50,
+    radius: 10,
+    velocityX: 0,
+    velocityY: 0,
+    flying: false
+};
 // Starting Angle
 let degree1 = 45;
 const angleOne = document.getElementById('angle-player1');
@@ -15,10 +45,9 @@ powerOne.innerText = "" + power1;
 let power2 = 10;
 const powerTwo = document.getElementById('power-player2');
 powerTwo.innerText = "" + power2;
-// Player Starting Position on the Y axis.
-const playerOnePosition = 930 - Math.random() * 215 - 35;
-const playerTwoPosition = 930 - Math.random() * 215 - 35;
-// Draw Mountains
+drawMap(ctx);
+const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+// Draw Map
 function drawMap(_ctx) {
     _ctx.beginPath();
     _ctx.moveTo(0, 930);
@@ -35,28 +64,25 @@ function drawMap(_ctx) {
     _ctx.fillStyle = 'sandybrown';
     _ctx.fill();
 }
-drawMap(ctx);
-const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 // Draw Cannons
-function drawCannons(_ctx) {
+function drawCannons(_ctx, _cannon1, _cannon2) {
     // Cannon Player 1
-    const angle = degree1 * (Math.PI / -180);
     _ctx.putImageData(imgData, 0, 0);
+    const angle = _cannon1.angle * (Math.PI / -180);
     const pathCannonOne = new Path2D();
-    const posX = 100;
-    const cannonX = posX;
-    const cannonY = playerOnePosition - 65;
+    const posX = _cannon1.x;
+    const posY = _cannon1.y - 65;
     pathCannonOne.ellipse(posX, playerOnePosition - 50, 50, 50, Math.PI / 4, 0, 2 * Math.PI);
-    pathCannonOne.rect(cannonX, cannonY, 100, 30);
+    pathCannonOne.rect(_cannon1.x, _cannon1.y - 65, 100, 30);
     _ctx.save();
-    _ctx.translate(cannonX, cannonY);
+    _ctx.translate(posX, posY);
     _ctx.rotate(angle);
-    _ctx.translate(-(cannonX), -(cannonY));
+    _ctx.translate(-(posX), -(posY));
     _ctx.fillStyle = "green";
     _ctx.fill(pathCannonOne);
     _ctx.restore();
     // Cannon Player 2
-    const angle2 = degree2 * (Math.PI / -180);
+    const angle2 = _cannon2.angle * (Math.PI / -180);
     const pathCannonTwo = new Path2D();
     const posX2 = 1820;
     const cannonX2 = posX2;
@@ -71,15 +97,7 @@ function drawCannons(_ctx) {
     _ctx.fill(pathCannonTwo);
     _ctx.restore();
 }
-const ball = {
-    player: true,
-    x: 100,
-    y: playerOnePosition - 50,
-    radius: 10,
-    velocityX: 0,
-    velocityY: 0,
-    flying: false
-};
+// Move Ball
 function moveBall() {
     if (ball.flying) {
         ball.velocityY += 0.5;
@@ -91,7 +109,7 @@ function moveBall() {
         }
     }
     ctx.putImageData(imgData, 0, 0);
-    drawCannons(ctx);
+    drawCannons(ctx, cannon1, cannon2);
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.radius, 0, 2 * Math.PI);
     ctx.fillStyle = "black";
@@ -100,8 +118,7 @@ function moveBall() {
         requestAnimationFrame(moveBall);
     }
 }
-window.addEventListener("load", loadHandler);
-window.addEventListener("keydown", handleKeyPress);
+// Simulate Mouse-click on Keydown
 function handleKeyPress(_event) {
     if (_event.key === 'e') {
         const addAngleButton2 = document.getElementById("addAngleButton2");
@@ -130,12 +147,12 @@ function loadHandler() {
     restartButton.addEventListener("click", restartGame);
     // Adjust Angle with Mousedown
     const addAngleButton1 = document.getElementById("addAngleButton1");
-    addAngleButton1.addEventListener("mousedown", addAngle);
+    addAngleButton1.addEventListener("mousedown", () => addAngle(cannon1.player));
     const subAngleButton1 = document.getElementById("subAngleButton1");
     subAngleButton1.addEventListener("mousedown", subAngle);
     // Adjust Angle with Keydown
     const addAngleButton2 = document.getElementById("addAngleButton2");
-    addAngleButton2.addEventListener("click", addAngle2);
+    addAngleButton2.addEventListener("click", () => addAngle(cannon2.player));
     const subAngleButton2 = document.getElementById("subAngleButton2");
     subAngleButton2.addEventListener("click", subAngle2);
     // Adjust Power with Mousedown
@@ -155,31 +172,34 @@ function loadHandler() {
     const fireButton2 = document.getElementById("fireButton2");
     fireButton2.addEventListener("click", () => fireCannon(degree2, power2, false));
 }
-function addAngle() {
-    if (degree1 < 90) {
-        degree1 += 1;
-        angleOne.textContent = degree1.toString();
-        drawCannons(ctx);
+function addAngle(_cannon) {
+    if (_cannon === true) {
+        if (degree1 < 90) {
+            cannon1.angle += 1;
+            angleOne.textContent = cannon1.angle.toString();
+            drawCannons(ctx, cannon1, cannon2);
+        }
+    }
+    else {
+        if (degree1 < 90) {
+            cannon2.angle += 1;
+            angleTwo.textContent = cannon2.angle.toString();
+            console.log("q");
+        }
     }
 }
 function subAngle() {
     if (degree1 > 0) {
         degree1 -= 1;
         angleOne.textContent = degree1.toString();
-        drawCannons(ctx);
+        drawCannons(ctx, cannon1, cannon2);
     }
-}
-function addAngle2() {
-    degree2 += 1;
-    angleTwo.textContent = degree2.toString();
-    console.log("q");
-    drawCannons(ctx);
 }
 function subAngle2() {
     degree2 -= 1;
     angleTwo.textContent = degree2.toString();
     console.log("e");
-    drawCannons(ctx);
+    drawCannons(ctx, cannon1, cannon2);
 }
 function addPower() {
     if (power1 < 20) {
