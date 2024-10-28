@@ -10,13 +10,13 @@ class Animal {
         this.hunger = _hunger;
     }
     alert() {
-        console.log(`Old MacDonald had a farm. E-I-E-I-O. <br>
-            And on that farm he had a ${this.type}. E-I-E-I-O. <br>
-            With an ${this.noise} ${this.noise} here. <br>
-            And an ${this.noise} ${this.noise} there. <br>
-            Here an ${this.noise}. <br>
-            There an ${this.noise}. <br>
-            Everywhere an ${this.noise} ${this.noise}. <br>
+        console.log(`Old MacDonald had a farm. E-I-E-I-O.
+            And on that farm he had a ${this.type}. E-I-E-I-O.
+            With an ${this.noise} ${this.noise} here.
+            And an ${this.noise} ${this.noise} there.
+            Here an ${this.noise}.
+            There an ${this.noise}.
+            Everywhere an ${this.noise} ${this.noise}.
             Old MacDonald had a farm. E-I-E-I-O.`);
         return this.noise;
     }
