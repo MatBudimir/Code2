@@ -1,0 +1,194 @@
+body {
+    --s: 5px;
+    --c: rgb(189, 194, 184);
+
+    --_g:
+        #0000 calc(-650%/13) calc(50%/13), var(--c) 0 calc(100%/13),
+        #0000 0 calc(150%/13), var(--c) 0 calc(200%/13),
+        #0000 0 calc(250%/13), var(--c) 0 calc(300%/13);
+    --_g0: repeating-linear-gradient(45deg, var(--_g));
+    --_g1: repeating-linear-gradient(-45deg, var(--_g));
+    background:
+        var(--_g0), var(--_g0) var(--s) var(--s),
+        var(--_g1), var(--_g1) var(--s) var(--s) rgb(193, 223, 193);
+    background-size: calc(2*var(--s)) calc(2*var(--s));
+}
+
+.left-panel {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    display: grid;
+    width: 10%;
+    height: 49%;
+    border-width: 0.5em;
+    background-color: darkslategrey;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 24px;
+    outline: 2px solid transparent;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    touch-action: manipulation;
+    box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
+}
+
+#name {
+    position: absolute;
+    top: 2%;
+    left: 14%;
+    display: grid;
+    width: 24%;
+    height: 8%;
+    border-width: 0.5em;
+    background-color: rgb(22, 44, 44);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 120%;
+    font-weight: 700;
+    outline: 2px solid transparent;
+    padding: 1.5%;
+    text-align: center;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    touch-action: manipulation;
+    box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
+}
+
+#lyrics {
+    position: absolute;
+    top: 12%;
+    left: 14%;
+    display: grid;
+    width: 72%;
+    height: 39%;
+    border-width: 0.5em;
+    background-color: darkslategrey;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 24px;
+    outline: 2px solid transparent;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    touch-action: manipulation;
+    box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
+}
+
+#food {
+    position: absolute;
+    top: 53%;
+    left: 14%;
+    display: grid;
+    width: 72%;
+    height: 18%;
+    border-width: 0.5em;
+    background-color: darkslategrey;
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 24px;
+    outline: 2px solid transparent;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    touch-action: manipulation;
+    box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
+}
+
+#clock {
+    position: absolute;
+    top: 2%;
+    right: 14%;
+    display: grid;
+    width: 12%;
+    height: 8%;
+    border-width: 0.5em;
+    background-color: rgb(83, 116, 116);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
+    outline: 2px solid transparent;
+    padding: 1.5%;
+    text-align: center;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    touch-action: manipulation;
+    box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
+}
+
+#nextButton{
+    position: absolute;
+    top: 73%;
+    left: 45%;
+    display: grid;
+    width: 10%;
+    height: 6%;
+    border-width: 0.3em;
+    background-color: darkslategrey;
+    border-radius: .9rem;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 9px;
+    outline: 1px solid transparent;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    touch-action: manipulation;
+    box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
+}
+
+#nextButton:hover{
+    background-color: rgb(22, 44, 44);
+}
+
+.ad {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    display: grid;
+    width: 10%;
+    height: 96%;
+    border-width: 0.5em;
+    background-color: rgb(79, 47, 47);
+    border-radius: .5rem;
+    box-sizing: border-box;
+    color: whitesmoke;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;;
+    font-size: 100%;
+    font-weight: 500;
+    line-height: 24px;
+    outline: 2px solid transparent;
+    padding: 4rem 1.5rem;
+    text-align: center;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    touch-action: manipulation;
+    box-shadow: -6px 8px 10px rgba(81, 41, 10, 0.1), 0px 2px 2px rgba(81, 41, 10, 0.2);
+}
