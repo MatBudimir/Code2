@@ -23,6 +23,8 @@ namespace AsteroidsGame {
 
         createAsteroids(7);
 
+        canvas.addEventListener("click", fire);
+
         window.setInterval(update, 20);
     }
 
@@ -32,6 +34,17 @@ namespace AsteroidsGame {
             const asteroid: Asteroid = new Asteroid(1.0);
             asteroids.push(asteroid);
         }
+    }
+
+    function fire(_event: MouseEvent): void {
+        console.log("Fire!");
+        let pointer: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
+        let detectHit: Asteroid | null = getAsteroidHit(pointer);
+        if (detectHit) {
+            //break asteroid
+        }
+            
+
     }
 
     function update(): void {

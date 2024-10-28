@@ -16,6 +16,7 @@ var AsteroidsGame;
         AsteroidsGame.createPaths();
         console.log("AsteroidPaths: ", AsteroidsGame.asteroidPaths);
         createAsteroids(7);
+        canvas.addEventListener("click", fire);
         window.setInterval(update, 20);
     }
     function createAsteroids(_nAsteroids) {
@@ -23,6 +24,14 @@ var AsteroidsGame;
         for (let i = 0; i < _nAsteroids; i++) {
             const asteroid = new AsteroidsGame.Asteroid(1.0);
             asteroids.push(asteroid);
+        }
+    }
+    function fire(_event) {
+        console.log("Fire!");
+        let pointer = new AsteroidsGame.Vector(_event.clientX - AsteroidsGame.crc2.canvas.offsetLeft, _event.clientY - AsteroidsGame.crc2.canvas.offsetTop);
+        let detectHit = getAsteroidHit(pointer);
+        if (detectHit) {
+            //break asteroid
         }
     }
     function update() {
@@ -34,4 +43,4 @@ var AsteroidsGame;
         }
     }
 })(AsteroidsGame || (AsteroidsGame = {}));
-//# sourceMappingURL=Game.js.map
+//# sourceMappingURL=MainGame.js.map

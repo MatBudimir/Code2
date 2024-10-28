@@ -36,4 +36,4 @@ var AsteroidsGame;
     }
     AsteroidsGame.Asteroid = Asteroid;
 })(AsteroidsGame || (AsteroidsGame = {}));
-//# sourceMappingURL=Asteroid.js.map
+//# sourceMappingURL=Class_Asteroid.js.map

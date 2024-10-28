@@ -26,4 +26,4 @@ var AsteroidsGame;
     }
     AsteroidsGame.Vector = Vector;
 })(AsteroidsGame || (AsteroidsGame = {}));
-//# sourceMappingURL=Vector.js.map
+//# sourceMappingURL=Class_Vector.js.map
