@@ -3,6 +3,8 @@ namespace AsteroidsGame {
 
     export let crc2: CanvasRenderingContext2D;
 
+    const asteroids: Asteroid[] = [];
+
 
     function handleLoad(_event: Event): void {
         const canvas: HTMLCanvasElement | null = document.querySelector("canvas");
@@ -19,10 +21,26 @@ namespace AsteroidsGame {
         createPaths();
         console.log("AsteroidPaths: ", asteroidPaths);
 
-        const asteroid: Asteroid = new Asteroid(1);
-        for (let j: number = 0; j < 75; j++) {
+        createAsteroids(7);
+
+        window.setInterval(update, 20);
+    }
+
+    function createAsteroids(_nAsteroids: number): void {
+        console.log("Create Asteroids");
+        for (let i:number = 0; i < _nAsteroids; i++){
+            const asteroid: Asteroid = new Asteroid(1.0);
+            asteroids.push(asteroid);
+        }
+    }
+
+    function update(): void {
+        console.log("Update");
+        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+
+        for (const asteroid of asteroids) {
+            asteroid.move(1 / 50);
             asteroid.draw();
-            asteroid.move(0.1);
         }
     }
 }
