@@ -1,6 +1,6 @@
 "use strict";
-var AsteroidGame;
-(function (AsteroidGame) {
+var AsteroidsGame;
+(function (AsteroidsGame) {
     class Vector {
         constructor(_x, _y) {
             this.set(_x, _y);
@@ -24,6 +24,6 @@ var AsteroidGame;
             this.scale(length);
         }
     }
-    AsteroidGame.Vector = Vector;
-})(AsteroidGame || (AsteroidGame = {}));
+    AsteroidsGame.Vector = Vector;
+})(AsteroidsGame || (AsteroidsGame = {}));
 //# sourceMappingURL=Vector.js.map

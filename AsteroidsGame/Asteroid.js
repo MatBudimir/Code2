@@ -1,24 +1,27 @@
 "use strict";
-var AsteroidGame;
-(function (AsteroidGame) {
+var AsteroidsGame;
+(function (AsteroidsGame) {
     class Asteroid {
         constructor(_size) {
-            this.pos = new AsteroidGame.Vector(0, 0);
-            this.vel = new AsteroidGame.Vector(0, 0);
+            console.log("Asteroid Constructor");
+            this.pos = new AsteroidsGame.Vector(0, 0);
+            this.vel = new AsteroidsGame.Vector(0, 0);
             this.vel.random(100, 200);
             this.type = Math.floor(Math.random() * 4);
             this.size = _size;
         }
         move(_time) {
+            console.log("Asteroid Move");
         }
         draw() {
-            AsteroidGame.crc2.save();
-            AsteroidGame.crc2.translate(this.pos.x, this.pos.y);
-            AsteroidGame.crc2.scale(this.size, this.size);
-            AsteroidGame.crc2.stroke(AsteroidGame.asteroidPaths[this.type]);
-            AsteroidGame.crc2.restore();
+            console.log("Draw");
+            AsteroidsGame.crc2.save();
+            AsteroidsGame.crc2.translate(this.pos.x, this.pos.y);
+            AsteroidsGame.crc2.scale(this.size, this.size);
+            AsteroidsGame.crc2.stroke(AsteroidsGame.asteroidPaths[this.type]);
+            AsteroidsGame.crc2.restore();
         }
     }
-    AsteroidGame.Asteroid = Asteroid;
-})(AsteroidGame || (AsteroidGame = {}));
+    AsteroidsGame.Asteroid = Asteroid;
+})(AsteroidsGame || (AsteroidsGame = {}));
 //# sourceMappingURL=Asteroid.js.map

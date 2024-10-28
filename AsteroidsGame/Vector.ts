@@ -1,4 +1,4 @@
-namespace AsteroidGame {
+namespace AsteroidsGame {
 
     export class Vector {
         x: number;

@@ -1,4 +1,4 @@
-namespace AsteroidGame {
+namespace AsteroidsGame {
     window.addEventListener("load", handleLoad);
 
     export let crc2: CanvasRenderingContext2D;
@@ -8,13 +8,14 @@ namespace AsteroidGame {
         if (!canvas)
             return;
 
-        crc2 = <CanvasRenderingContext2D>canvas.getContext("2D");
+        crc2 = <CanvasRenderingContext2D>canvas.getContext("2d");
         crc2.fillStyle = "black";
         crc2.strokeStyle = "white";
 
         createPaths();
+        console.log("AsteroidPaths: ", asteroidPaths);
 
-        let asteroid: Asteroid = new Asteroid(1);
+        const asteroid: Asteroid = new Asteroid(1);
         asteroid.draw();
     }
 }

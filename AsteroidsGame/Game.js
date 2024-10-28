@@ -1,17 +1,18 @@
 "use strict";
-var AsteroidGame;
-(function (AsteroidGame) {
+var AsteroidsGame;
+(function (AsteroidsGame) {
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         const canvas = document.querySelector("canvas");
         if (!canvas)
             return;
-        AsteroidGame.crc2 = canvas.getContext("2D");
-        AsteroidGame.crc2.fillStyle = "black";
-        AsteroidGame.crc2.strokeStyle = "white";
-        AsteroidGame.createPaths();
-        let asteroid = new AsteroidGame.Asteroid(1);
+        AsteroidsGame.crc2 = canvas.getContext("2d");
+        AsteroidsGame.crc2.fillStyle = "black";
+        AsteroidsGame.crc2.strokeStyle = "white";
+        AsteroidsGame.createPaths();
+        console.log("AsteroidPaths: ", AsteroidsGame.asteroidPaths);
+        const asteroid = new AsteroidsGame.Asteroid(1);
         asteroid.draw();
     }
-})(AsteroidGame || (AsteroidGame = {}));
+})(AsteroidsGame || (AsteroidsGame = {}));
 //# sourceMappingURL=Game.js.map

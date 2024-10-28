@@ -1,4 +1,4 @@
-namespace AsteroidGame {
+namespace AsteroidsGame {
 
     export class Asteroid {
         pos: Vector;
@@ -7,6 +7,7 @@ namespace AsteroidGame {
         size: number;
 
         constructor(_size: number) {
+            console.log("Asteroid Constructor");
             this.pos = new Vector(0, 0);
             this.vel = new Vector(0, 0);
             this.vel.random(100, 200);
@@ -15,10 +16,11 @@ namespace AsteroidGame {
         }
 
         move(_time: number): void {
-
+            console.log("Asteroid Move");
         }
 
         draw(): void {
+            console.log("Draw");
             crc2.save();
             crc2.translate(this.pos.x, this.pos.y);
             crc2.scale(this.size, this.size);
