@@ -12,12 +12,24 @@ var AsteroidsGame;
         }
         move(_time) {
             console.log("Asteroid Move");
+            const offset = new AsteroidsGame.Vector(this.vel.x, this.vel.y);
+            offset.scale(_time);
+            this.pos.add(offset);
+            if (this.pos.x < 0)
+                this.pos.x += AsteroidsGame.crc2.canvas.width;
+            if (this.pos.y < 0)
+                this.pos.y += AsteroidsGame.crc2.canvas.height;
+            if (this.pos.x > AsteroidsGame.crc2.canvas.width)
+                this.pos.x -= AsteroidsGame.crc2.canvas.width;
+            if (this.pos.y > AsteroidsGame.crc2.canvas.height)
+                this.pos.y -= AsteroidsGame.crc2.canvas.height;
         }
         draw() {
             console.log("Draw");
             AsteroidsGame.crc2.save();
             AsteroidsGame.crc2.translate(this.pos.x, this.pos.y);
             AsteroidsGame.crc2.scale(this.size, this.size);
+            AsteroidsGame.crc2.translate(-50, -50);
             AsteroidsGame.crc2.stroke(AsteroidsGame.asteroidPaths[this.type]);
             AsteroidsGame.crc2.restore();
         }
