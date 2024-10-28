@@ -1,5 +1,5 @@
 "use strict";
-<<<<<<< HEAD
+ HEAD
 // Hello
 var OldMcDonald;
 (function (OldMacDonald) {
@@ -90,9 +90,9 @@ var OldMcDonald;
         animals[i].sing();
         document.querySelector('#clock').innerHTML = "Day " + j;
     }
-})(OldMcDonald || (OldMcDonald = {}));
+})(OldMacDonald || (OldMacDonald = {}));
 //# sourceMappingURL=omd.js.map
-=======
+
 var OldMacDonald;
 (function (OldMacDonald) {
     class Animal {
@@ -113,4 +113,4 @@ var OldMacDonald;
     }
 })(OldMacDonald || (OldMacDonald = {}));
 //# sourceMappingURL=OldMacDonald.js.map
->>>>>>> 7f4bea48b4c97fe2cfe6a39c93b1aeb4a0df70b2
+
