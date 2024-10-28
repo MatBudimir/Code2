@@ -15,7 +15,7 @@ var AsteroidsGame;
         AsteroidsGame.createPaths();
         console.log("AsteroidPaths: ", AsteroidsGame.asteroidPaths);
         const asteroid = new AsteroidsGame.Asteroid(1);
-        for (let j = 0; j < 24; j++) {
+        for (let j = 0; j < 75; j++) {
             asteroid.draw();
             asteroid.move(0.1);
         }
