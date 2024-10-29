@@ -3,8 +3,7 @@ namespace AsteroidsGame {
 
     export let crc2: CanvasRenderingContext2D;
 
-    const asteroids: Asteroid[] = [];
-
+    const moveables: Moveable[] = [];
 
     function handleLoad(_event: Event): void {
         const canvas: HTMLCanvasElement | null = document.querySelector("canvas");
@@ -31,23 +30,23 @@ namespace AsteroidsGame {
     function createAsteroids(_nAsteroids: number): void {
         console.log("Create Asteroids");
         for (let i: number = 0; i < _nAsteroids; i++) {
-            const asteroid: Asteroid = new Asteroid(1.0);
-            asteroids.push(asteroid);
+            const asteroid: Moveable = new Moveable(1.0);
+            moveables.push(asteroid);
         }
     }
 
     function fire(_event: MouseEvent): void {
         console.log("Fire!");
         const pointer: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
-        const detectHit: Asteroid | null = getAsteroidHit(pointer);
+        const detectHit: Moveable | null = getAsteroidHit(pointer);
         if (detectHit) {
             console.log("Hit!")
             breakAsteroid(detectHit);
         }
     }
 
-    function getAsteroidHit(_pointer: Vector): Asteroid | null {
-        for (const asteroid of asteroids) {
+    function getAsteroidHit(_pointer: Vector): Moveable | null {
+        for (const asteroid of moveables) {
             if (asteroid.isHit(_pointer)) {
                 return asteroid;
             }
@@ -55,16 +54,16 @@ namespace AsteroidsGame {
         return null;
     }
 
-    function breakAsteroid(_asteroid: Asteroid): void {
+    function breakAsteroid(_asteroid: Moveable): void {
         if (_asteroid.size > 0.5) {
             for (let i: number = 0; i < 2; i++) {
-                const fragment: Asteroid = new Asteroid(_asteroid.size / 2, _asteroid.pos);
+                const fragment: Moveable = new Moveable(_asteroid.size / 2, _asteroid.pos);
                 fragment.vel.add(_asteroid.vel);
-                asteroids.push(fragment);
+                moveables.push(fragment);
             }
         }
-        const index: number = asteroids.indexOf(_asteroid);
-        asteroids.splice(index, 1);
+        const index: number = moveables.indexOf(_asteroid);
+        moveables.splice(index, 1);
     }
 
 
@@ -73,7 +72,7 @@ namespace AsteroidsGame {
         console.log("Update");
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
 
-        for (const asteroid of asteroids) {
+        for (const asteroid of moveables) {
             asteroid.move(1 / 50);
             asteroid.draw();
         }
