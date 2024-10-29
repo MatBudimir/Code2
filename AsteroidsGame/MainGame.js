@@ -20,18 +20,18 @@ var AsteroidsGame;
         window.setInterval(update, 20);
     }
     function createAsteroids(_nAsteroids) {
-        console.log("Create Asteroids");
+        //console.log("Create Asteroids");
         for (let i = 0; i < _nAsteroids; i++) {
             const asteroid = new AsteroidsGame.Moveable(1.0);
             moveables.push(asteroid);
         }
     }
     function fire(_event) {
-        console.log("Fire!");
+        //console.log("Fire!");
         const pointer = new AsteroidsGame.Vector(_event.clientX - AsteroidsGame.crc2.canvas.offsetLeft, _event.clientY - AsteroidsGame.crc2.canvas.offsetTop);
         const detectHit = getAsteroidHit(pointer);
         if (detectHit) {
-            console.log("Hit!");
+            //console.log("Hit!")
             breakAsteroid(detectHit);
         }
     }
@@ -55,7 +55,7 @@ var AsteroidsGame;
         moveables.splice(index, 1);
     }
     function update() {
-        console.log("Update");
+        //console.log("Update");
         AsteroidsGame.crc2.fillRect(0, 0, AsteroidsGame.crc2.canvas.width, AsteroidsGame.crc2.canvas.height);
         for (const asteroid of moveables) {
             asteroid.move(1 / 50);

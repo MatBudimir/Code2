@@ -5,7 +5,7 @@ namespace AsteroidsGame {
 
     const moveables: Moveable[] = [];
 
-    function handleLoad(_event: Event): void {
+    function handleLoad(_event: DOMEvent): void {
         const canvas: HTMLCanvasElement | null = document.querySelector("canvas");
         if (!canvas)
             return;
@@ -28,7 +28,7 @@ namespace AsteroidsGame {
     }
 
     function createAsteroids(_nAsteroids: number): void {
-        console.log("Create Asteroids");
+        //console.log("Create Asteroids");
         for (let i: number = 0; i < _nAsteroids; i++) {
             const asteroid: Moveable = new Moveable(1.0);
             moveables.push(asteroid);
@@ -36,11 +36,11 @@ namespace AsteroidsGame {
     }
 
     function fire(_event: MouseEvent): void {
-        console.log("Fire!");
+        //console.log("Fire!");
         const pointer: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
         const detectHit: Moveable | null = getAsteroidHit(pointer);
         if (detectHit) {
-            console.log("Hit!")
+            //console.log("Hit!")
             breakAsteroid(detectHit);
         }
     }
@@ -66,10 +66,8 @@ namespace AsteroidsGame {
         moveables.splice(index, 1);
     }
 
-
-
     function update(): void {
-        console.log("Update");
+        //console.log("Update");
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
 
         for (const asteroid of moveables) {
