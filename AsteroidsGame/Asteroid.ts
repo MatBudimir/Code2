@@ -7,19 +7,7 @@ namespace AsteroidsGame {
         size: number;
 
         constructor(_size: number, _pos?: Vector, _vel?: Vector) {
-            console.log("Asteroid Constructor");
-
-            if (_pos) {
-                this.pos = _pos
-            }
-            else {
-                this.pos = new Vector(0, 0);
-            }
-
-            this.vel = new Vector(0, 0);
-            this.vel.random(100, 200);
-            this.type = Math.floor(Math.random() * 4);
-            this.size = _size;
+           super(_size)
         }
 
         move(_time: number): void {

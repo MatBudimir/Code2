@@ -3,17 +3,7 @@ var AsteroidsGame;
 (function (AsteroidsGame) {
     class Asteroid extends AsteroidsGame.Moveable {
         constructor(_size, _pos, _vel) {
-            console.log("Asteroid Constructor");
-            if (_pos) {
-                this.pos = _pos;
-            }
-            else {
-                this.pos = new AsteroidsGame.Vector(0, 0);
-            }
-            this.vel = new AsteroidsGame.Vector(0, 0);
-            this.vel.random(100, 200);
-            this.type = Math.floor(Math.random() * 4);
-            this.size = _size;
+            super(_size);
         }
         move(_time) {
             // console.log("Asteroid Move");
@@ -46,4 +36,4 @@ var AsteroidsGame;
     }
     AsteroidsGame.Asteroid = Asteroid;
 })(AsteroidsGame || (AsteroidsGame = {}));
-//# sourceMappingURL=Class_Asteroid.js.map
+//# sourceMappingURL=Asteroid.js.map

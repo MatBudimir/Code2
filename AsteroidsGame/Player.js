@@ -13,4 +13,4 @@ var AsteroidsGame;
     }
     AsteroidsGame.Player = Player;
 })(AsteroidsGame || (AsteroidsGame = {}));
-//# sourceMappingURL=Class_Player.js.map
+//# sourceMappingURL=Player.js.map
