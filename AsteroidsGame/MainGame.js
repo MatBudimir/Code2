@@ -28,11 +28,31 @@ var AsteroidsGame;
     }
     function fire(_event) {
         console.log("Fire!");
-        let pointer = new AsteroidsGame.Vector(_event.clientX - AsteroidsGame.crc2.canvas.offsetLeft, _event.clientY - AsteroidsGame.crc2.canvas.offsetTop);
-        let detectHit = getAsteroidHit(pointer);
+        const pointer = new AsteroidsGame.Vector(_event.clientX - AsteroidsGame.crc2.canvas.offsetLeft, _event.clientY - AsteroidsGame.crc2.canvas.offsetTop);
+        const detectHit = getAsteroidHit(pointer);
         if (detectHit) {
-            //break asteroid
+            console.log("Hit!");
+            breakAsteroid(detectHit);
         }
+    }
+    function getAsteroidHit(_pointer) {
+        for (const asteroid of asteroids) {
+            if (asteroid.isHit(_pointer)) {
+                return asteroid;
+            }
+        }
+        return null;
+    }
+    function breakAsteroid(_asteroid) {
+        if (_asteroid.size > 0.5) {
+            for (let i = 0; i < 2; i++) {
+                const fragment = new AsteroidsGame.Asteroid(_asteroid.size / 2, _asteroid.pos);
+                fragment.vel.add(_asteroid.vel);
+                asteroids.push(fragment);
+            }
+        }
+        const index = asteroids.indexOf(_asteroid);
+        asteroids.splice(index, 1);
     }
     function update() {
         console.log("Update");

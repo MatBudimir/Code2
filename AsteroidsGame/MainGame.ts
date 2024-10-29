@@ -30,7 +30,7 @@ namespace AsteroidsGame {
 
     function createAsteroids(_nAsteroids: number): void {
         console.log("Create Asteroids");
-        for (let i:number = 0; i < _nAsteroids; i++){
+        for (let i: number = 0; i < _nAsteroids; i++) {
             const asteroid: Asteroid = new Asteroid(1.0);
             asteroids.push(asteroid);
         }
@@ -38,14 +38,36 @@ namespace AsteroidsGame {
 
     function fire(_event: MouseEvent): void {
         console.log("Fire!");
-        let pointer: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
-        let detectHit: Asteroid | null = getAsteroidHit(pointer);
+        const pointer: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
+        const detectHit: Asteroid | null = getAsteroidHit(pointer);
         if (detectHit) {
-            //break asteroid
+            console.log("Hit!")
+            breakAsteroid(detectHit);
         }
-            
-
     }
+
+    function getAsteroidHit(_pointer: Vector): Asteroid | null {
+        for (const asteroid of asteroids) {
+            if (asteroid.isHit(_pointer)) {
+                return asteroid;
+            }
+        }
+        return null;
+    }
+
+    function breakAsteroid(_asteroid: Asteroid): void {
+        if (_asteroid.size > 0.5) {
+            for (let i: number = 0; i < 2; i++) {
+                const fragment: Asteroid = new Asteroid(_asteroid.size / 2, _asteroid.pos);
+                fragment.vel.add(_asteroid.vel);
+                asteroids.push(fragment);
+            }
+        }
+        const index: number = asteroids.indexOf(_asteroid);
+        asteroids.splice(index, 1);
+    }
+
+
 
     function update(): void {
         console.log("Update");
