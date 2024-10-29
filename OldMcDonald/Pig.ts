@@ -2,8 +2,8 @@ namespace OldMcDonald{
 
     export class Pig extends Animal {
 
-        eatAll(): void {
-
+        doSpecialAction(): void {
+console.log("Eats all the leftovers.")
         }
     }
 }

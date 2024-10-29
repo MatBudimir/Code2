@@ -2,7 +2,8 @@
 var OldMcDonald;
 (function (OldMcDonald) {
     class Cat extends OldMcDonald.Animal {
-        loaf() {
+        doSpecialAction() {
+            console.log("Purr...");
         }
     }
     OldMcDonald.Cat = Cat;

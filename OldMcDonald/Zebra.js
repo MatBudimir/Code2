@@ -2,7 +2,8 @@
 var OldMcDonald;
 (function (OldMcDonald) {
     class Zebra extends OldMcDonald.Animal {
-        escape() {
+        doSpecialAction() {
+            console.log("The Zebra runs in circles");
         }
     }
     OldMcDonald.Zebra = Zebra;

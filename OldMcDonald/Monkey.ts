@@ -2,8 +2,8 @@ namespace OldMcDonald{
 
     export class Monkey extends Animal{
 
-        throwFood(): void {
-
+        doSpecialAction(): void {
+            console.log("Throws a rock!")
         }
     }
 }

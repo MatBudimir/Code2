@@ -2,8 +2,8 @@ namespace OldMcDonald {
 
     export class Zebra extends Animal{
 
-        escape(): void {
-
+        doSpecialAction(): void {
+            console.log("The Zebra runs in circles")
         }
     }
 }

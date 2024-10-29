@@ -9,11 +9,11 @@ namespace OldMcDonald {
     let j: number = 1;
 
     function handleLoad(_event: Event): void {
-        animals.push(new Animal("Barky", "Dog", "Bones", 2, "woof"));
-        animals.push(new Animal("Snowball", "Cat", "Fish", 1, "meow"));
-        animals.push(new Animal("Kong", "Monkey", "Bananas", 7, "u-u a-a"));
-        animals.push(new Animal("Stripey", "Zebra", "Apples", 5, "hiyah"));
-        animals.push(new Animal("Schnitzel", "Pig", "Cabbages", 3, "oink"));
+        animals.push(new Dog("Barky", "Dog", "Bones", 2, "woof"));
+        animals.push(new Cat("Snowball", "Cat", "Fish", 1, "meow"));
+        animals.push(new Monkey("Kong", "Monkey", "Bananas", 7, "u-u a-a"));
+        animals.push(new Zebra("Stripey", "Zebra", "Apples", 5, "hiyah"));
+        animals.push(new Pig("Schnitzel", "Pig", "Cabbages", 3, "oink"));
 
         stockpile.push(new Food("Bones", 24));
         stockpile.push(new Food("Fish", 10));
@@ -43,6 +43,12 @@ namespace OldMcDonald {
         }
         animals[i].eat(stockpile);
         animals[i].sing();
+
+        const animal: Animal = animals[i];
+        if (animal instanceof Dog || animal instanceof Cat || animal instanceof Monkey || animal instanceof Zebra || animal instanceof Pig) {
+            animal.doSpecialAction();
+        }
+        
         document.querySelector('#clock')!.innerHTML = "Day " + j;
     }
 }
