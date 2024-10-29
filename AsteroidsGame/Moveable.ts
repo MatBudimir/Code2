@@ -28,14 +28,15 @@ namespace AsteroidsGame {
             offset.scale(_time);
             this.pos.add(offset);
 
-            if (this.pos.x < 0)
-                this.pos.x += crc2.canvas.width;
-            if (this.pos.y < 0)
-                this.pos.y += crc2.canvas.height;
-            if (this.pos.x > crc2.canvas.width)
-                this.pos.x -= crc2.canvas.width;
-            if (this.pos.y > crc2.canvas.height)
-                this.pos.y -= crc2.canvas.height;
+            if (this.pos.x < 0 - 50)
+                this.pos.x += crc2.canvas.width + 50;
+            if (this.pos.y < 0 - 50)
+                this.pos.y += crc2.canvas.height + 50;
+
+            if (this.pos.x > crc2.canvas.width + 50)
+                this.pos.x = -crc2.canvas.width - 50;
+            if (this.pos.y > crc2.canvas.height + 50)
+                this.pos.y = -crc2.canvas.height - 50;
 
         }
 

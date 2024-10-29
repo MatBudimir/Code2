@@ -44,10 +44,16 @@ var AsteroidsGame;
         return null;
     }
     function breakAsteroid(_asteroid) {
-        if (_asteroid.size > 0.5) {
+        if (_asteroid.size > 0.4) {
             for (let i = 0; i < 2; i++) {
-                const fragment = new AsteroidsGame.Moveable(_asteroid.size / 2, _asteroid.pos);
-                fragment.vel.add(_asteroid.vel);
+                const fragment = new AsteroidsGame.Moveable(_asteroid.size / 2, _asteroid.pos.copy());
+                fragment.vel = _asteroid.vel.copy();
+                if (i === 0) {
+                    fragment.vel.x *= -1;
+                }
+                else {
+                    fragment.vel.y *= -1;
+                }
                 moveables.push(fragment);
             }
         }

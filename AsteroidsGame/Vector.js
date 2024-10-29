@@ -23,6 +23,12 @@ var AsteroidsGame;
             this.set(Math.cos(dir), Math.sin(dir));
             this.scale(length);
         }
+        copy() {
+            return new Vector(this.x, this.y);
+        }
+        mag() {
+            return Math.sqrt(this.x * this.x + this.y * this.y);
+        }
     }
     AsteroidsGame.Vector = Vector;
 })(AsteroidsGame || (AsteroidsGame = {}));

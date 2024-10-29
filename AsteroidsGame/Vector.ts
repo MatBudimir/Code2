@@ -30,5 +30,13 @@ namespace AsteroidsGame {
             this.set(Math.cos(dir), Math.sin(dir));
             this.scale(length);
         }
+
+        copy(): Vector {
+            return new Vector(this.x, this.y);
+        }
+
+        mag(): number {
+            return Math.sqrt(this.x * this.x + this.y * this.y);
+        }
     }
 }
