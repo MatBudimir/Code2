@@ -1,7 +1,7 @@
 "use strict";
 var OldMcDonald;
 (function (OldMcDonald) {
-    class Monkey {
+    class Monkey extends OldMcDonald.Animal {
         throwFood() {
         }
     }

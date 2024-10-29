@@ -1,9 +1,9 @@
 namespace OldMcDonald{
 
-    export class Monkey {
+    export class Monkey extends Animal{
 
         throwFood(): void {
-            
+
         }
     }
 }

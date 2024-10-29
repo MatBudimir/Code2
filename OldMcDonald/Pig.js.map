@@ -1,1 +1,1 @@
-{"version":3,"file":"Pig.js","sourceRoot":"","sources":["Pig.ts"],"names":[],"mappings":";AAAA,IAAU,WAAW,CAQpB;AARD,WAAU,WAAW;IAEjB,MAAa,GAAG;QAEZ,MAAM;QAEN,CAAC;KACJ;IALY,eAAG,MAKf,CAAA;AACL,CAAC,EARS,WAAW,KAAX,WAAW,QAQpB"}
+{"version":3,"file":"Pig.js","sourceRoot":"","sources":["Pig.ts"],"names":[],"mappings":";AAAA,IAAU,WAAW,CAQpB;AARD,WAAU,WAAW;IAEjB,MAAa,GAAI,SAAQ,YAAA,MAAM;QAE3B,MAAM;QAEN,CAAC;KACJ;IALY,eAAG,MAKf,CAAA;AACL,CAAC,EARS,WAAW,KAAX,WAAW,QAQpB"}

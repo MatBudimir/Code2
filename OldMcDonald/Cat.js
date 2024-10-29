@@ -1,8 +1,10 @@
 "use strict";
 var OldMcDonald;
 (function (OldMcDonald) {
-    class cat {
+    class Cat extends OldMcDonald.Animal {
+        loaf() {
+        }
     }
-    OldMcDonald.cat = cat;
+    OldMcDonald.Cat = Cat;
 })(OldMcDonald || (OldMcDonald = {}));
 //# sourceMappingURL=Cat.js.map

@@ -1,6 +1,6 @@
 namespace OldMcDonald {
 
-    export class Dog {
+    export class Dog extends Animal {
 
     attack(): void {
 

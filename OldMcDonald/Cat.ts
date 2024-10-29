@@ -1,6 +1,6 @@
 namespace OldMcDonald {
 
-    export class Cat {
+    export class Cat extends Animal {
 
 
         loaf(): void {

@@ -1,9 +1,9 @@
 namespace OldMcDonald{
 
-    export class Pig {
+    export class Pig extends Animal {
 
         eatAll(): void {
-            
+
         }
     }
 }
