@@ -1,7 +1,7 @@
 "use strict";
 var AsteroidsGame;
 (function (AsteroidsGame) {
-    class Asteroid {
+    class Asteroid extends AsteroidsGame.Moveable {
         constructor(_size, _pos, _vel) {
             console.log("Asteroid Constructor");
             if (_pos) {

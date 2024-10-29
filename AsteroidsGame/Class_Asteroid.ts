@@ -1,6 +1,6 @@
 namespace AsteroidsGame {
 
-    export class Asteroid {
+    export class Asteroid extends Moveable {
         pos: Vector;
         vel: Vector;
         type: number;
