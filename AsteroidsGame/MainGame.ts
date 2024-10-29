@@ -5,7 +5,7 @@ namespace AsteroidsGame {
 
     const moveables: Moveable[] = [];
 
-    function handleLoad(_event: DOMEvent): void {
+    function handleLoad(_event: Event): void {
         const canvas: HTMLCanvasElement | null = document.querySelector("canvas");
         if (!canvas)
             return;
