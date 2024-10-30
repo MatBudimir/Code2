@@ -35,7 +35,7 @@ namespace AsteroidsGame
 
         window.setInterval(update, 20);
         window.setInterval(shootProjectile, 1200);
-        window.setInterval(createUfos, 3000);
+        window.setInterval(createUfos, 6000);
         window.setInterval(createAsteroids, 4800);
     }
 
@@ -43,13 +43,19 @@ namespace AsteroidsGame
     {
         //console.log("Create Asteroids");
         const asteroid: Moveable = new Asteroid(1.0);
-        moveables.push(asteroid);
+        if (moveables.filter(_asteroid => _asteroid instanceof Asteroid).length < 7)
+        {
+            moveables.push(asteroid);
+        }
     }
 
     function createUfos(): void
     {
         const ufo: Moveable = new Ufo((Math.ceil(Math.random() * 2) / 2));
-        moveables.push(ufo);
+        if (moveables.filter(_ufo => _ufo instanceof Ufo).length < 2)
+        {
+            moveables.push(ufo);
+        }
     }
 
     function fire(_event: MouseEvent): void
