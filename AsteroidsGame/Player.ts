@@ -11,17 +11,16 @@ namespace AsteroidsGame {
                 this.pos = _pos;
             }
             else {
-                this.pos = new AsteroidsGame.Vector(0, 0);
+                this.pos = new AsteroidsGame.Vector(crc2.canvas.width/2, crc2.canvas.height/2);
             }
             this.vel = new AsteroidsGame.Vector(0, 0);
             this.vel.random(0, -10);
         }
 
         draw(): void {
-            console.log("Player Draw");
+            // console.log("Player Draw");
             AsteroidsGame.crc2.save();
             AsteroidsGame.crc2.translate(this.pos.x, this.pos.y);
-            AsteroidsGame.crc2.translate(AsteroidsGame.crc2.canvas.width / 2, AsteroidsGame.crc2.canvas.height / 2);
             AsteroidsGame.crc2.beginPath();
             AsteroidsGame.crc2.moveTo(0, 0);
             AsteroidsGame.crc2.lineTo(15, 45);
@@ -46,6 +45,10 @@ namespace AsteroidsGame {
             this.vel.x = Math.cos(angle) * speed;
             this.vel.y = Math.sin(angle) * speed;
 
+        }
+
+        move(_time: number): void {
+            super.move(_time);
         }
     }
 }

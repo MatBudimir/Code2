@@ -21,7 +21,7 @@ namespace AsteroidsGame {
         createPaths();
         console.log("AsteroidPaths: ", asteroidPaths);
 
-        moveables.push(new Player(1));
+        moveables.unshift(new Player(1));
         createAsteroids(7);
 
         canvas.addEventListener("click", fire);
@@ -50,10 +50,12 @@ namespace AsteroidsGame {
 
     function shootProjectile(_event: MouseEvent): void {
         //console.log("Projectile!");
-        const origin: Vector = new Vector(_event.clientX - crc2.canvas.offsetLeft, _event.clientY - crc2.canvas.offsetTop);
+        const origin: Vector = new Vector(moveables[0].pos.x - crc2.canvas.offsetLeft, moveables[0].pos.y - crc2.canvas.offsetTop);
+        console.log(moveables[0].pos.x)
         const vel: Vector = new Vector(0, 0);
-        vel.random(100,100);
+        vel.random(100, 100);
         moveables.push(new Projectile(origin, vel));
+
     }
 
     function getAsteroidHit(_pointer: Vector): Asteroid | null {
@@ -92,6 +94,7 @@ namespace AsteroidsGame {
 
         for (const player of moveables) {
             if (player instanceof Player) {
+                player.move(1 / 50)
                 player.draw();
             }
         }
@@ -101,7 +104,9 @@ namespace AsteroidsGame {
             asteroid.draw();
         }
 
-        projectile.move(1/50);
-        projectile.draw();
+        if (projectile != null) {
+            projectile.move(1 / 50);
+            projectile.draw();
+        }
     }
 }

@@ -16,7 +16,7 @@ var AsteroidsGame;
         AsteroidsGame.crc2.fillRect(0, 0, AsteroidsGame.crc2.canvas.width, AsteroidsGame.crc2.canvas.height);
         AsteroidsGame.createPaths();
         console.log("AsteroidPaths: ", AsteroidsGame.asteroidPaths);
-        moveables.push(new AsteroidsGame.Player(1));
+        moveables.unshift(new AsteroidsGame.Player(1));
         createAsteroids(7);
         canvas.addEventListener("click", fire);
         canvas.addEventListener("mousedown", shootProjectile);
@@ -40,7 +40,8 @@ var AsteroidsGame;
     }
     function shootProjectile(_event) {
         //console.log("Projectile!");
-        const origin = new AsteroidsGame.Vector(_event.clientX - AsteroidsGame.crc2.canvas.offsetLeft, _event.clientY - AsteroidsGame.crc2.canvas.offsetTop);
+        const origin = new AsteroidsGame.Vector(moveables[0].pos.x - AsteroidsGame.crc2.canvas.offsetLeft, moveables[0].pos.y - AsteroidsGame.crc2.canvas.offsetTop);
+        console.log(moveables[0].pos.x);
         const vel = new AsteroidsGame.Vector(0, 0);
         vel.random(100, 100);
         moveables.push(new AsteroidsGame.Projectile(origin, vel));
@@ -77,6 +78,7 @@ var AsteroidsGame;
         AsteroidsGame.crc2.fillRect(0, 0, AsteroidsGame.crc2.canvas.width, AsteroidsGame.crc2.canvas.height);
         for (const player of moveables) {
             if (player instanceof AsteroidsGame.Player) {
+                player.move(1 / 50);
                 player.draw();
             }
         }
@@ -84,8 +86,10 @@ var AsteroidsGame;
             asteroid.move(1 / 50);
             asteroid.draw();
         }
-        projectile.move(1 / 50);
-        projectile.draw();
+        if (projectile != null) {
+            projectile.move(1 / 50);
+            projectile.draw();
+        }
     }
 })(AsteroidsGame || (AsteroidsGame = {}));
 //# sourceMappingURL=MainGame.js.map
