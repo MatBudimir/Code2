@@ -14,7 +14,7 @@ namespace AsteroidsGame {
             // console.log("Draw");
             crc2.save();
             crc2.translate(this.pos.x, this.pos.y);
-            crc2.strokeRect(-1, -1, 1, 1);
+            crc2.strokeRect(-1, -1, 2, 2);
             crc2.restore();
         }
 

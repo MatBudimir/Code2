@@ -3,7 +3,7 @@ var AsteroidsGame;
 (function (AsteroidsGame) {
     window.addEventListener("load", handleLoad);
     const moveables = [];
-    let projectile;
+    let score = 0;
     function handleLoad(_event) {
         const canvas = document.querySelector("canvas");
         if (!canvas)
@@ -17,41 +17,62 @@ var AsteroidsGame;
         AsteroidsGame.createPaths();
         console.log("AsteroidPaths: ", AsteroidsGame.asteroidPaths);
         moveables.unshift(new AsteroidsGame.Player(1));
-        createAsteroids(7);
-        canvas.addEventListener("click", fire);
-        canvas.addEventListener("mousedown", shootProjectile);
-        window.setInterval(update, 20);
-    }
-    function createAsteroids(_nAsteroids) {
-        //console.log("Create Asteroids");
-        for (let i = 0; i < _nAsteroids; i++) {
-            const asteroid = new AsteroidsGame.Asteroid(1.0);
-            moveables.push(asteroid);
+        for (let i = 0; i < 5; i++) {
+            createAsteroids();
         }
+        canvas.addEventListener("click", fire);
+        // canvas.addEventListener("mousedown", shootLaser);
+        window.setInterval(update, 20);
+        window.setInterval(shootProjectile, 1200);
+        window.setInterval(createUfos, 3000);
+        window.setInterval(createAsteroids, 4800);
+    }
+    function createAsteroids() {
+        //console.log("Create Asteroids");
+        const asteroid = new AsteroidsGame.Asteroid(1.0);
+        moveables.push(asteroid);
+    }
+    function createUfos() {
+        const ufo = new AsteroidsGame.Ufo((Math.ceil(Math.random() * 2) / 2));
+        moveables.push(ufo);
     }
     function fire(_event) {
         //console.log("Fire!");
         const pointer = new AsteroidsGame.Vector(_event.clientX - AsteroidsGame.crc2.canvas.offsetLeft, _event.clientY - AsteroidsGame.crc2.canvas.offsetTop);
-        const detectHit = getAsteroidHit(pointer);
-        if (detectHit) {
+        const asteroidHit = getAsteroidHit(pointer);
+        const ufoHit = getUfoHit(pointer);
+        if (asteroidHit) {
             //console.log("Hit!")
-            breakAsteroid(detectHit);
+            breakAsteroid(asteroidHit);
+        }
+        else if (ufoHit) {
+            destroyUfo(ufoHit);
         }
     }
     function shootProjectile(_event) {
         //console.log("Projectile!");
-        const origin = new AsteroidsGame.Vector(moveables[0].pos.x - AsteroidsGame.crc2.canvas.offsetLeft, moveables[0].pos.y - AsteroidsGame.crc2.canvas.offsetTop);
-        console.log(moveables[0].pos.x);
-        const vel = new AsteroidsGame.Vector(0, 0);
-        vel.random(100, 100);
-        moveables.push(new AsteroidsGame.Projectile(origin, vel));
+        for (const ufo of moveables) {
+            if (ufo instanceof AsteroidsGame.Ufo && ufo.size === 1) {
+                const origin = new AsteroidsGame.Vector(ufo.pos.x - AsteroidsGame.crc2.canvas.offsetLeft - 34, ufo.pos.y - AsteroidsGame.crc2.canvas.offsetTop - 19);
+                console.log(ufo.pos.x);
+                const vel = new AsteroidsGame.Vector(0, 0);
+                vel.random(100, 100);
+                moveables.push(new AsteroidsGame.Projectile(origin, vel));
+            }
+        }
     }
     function getAsteroidHit(_pointer) {
         for (const asteroid of moveables) {
-            if (asteroid instanceof AsteroidsGame.Asteroid) {
-                if (asteroid.isHit(_pointer)) {
-                    return asteroid;
-                }
+            if (asteroid instanceof AsteroidsGame.Asteroid && asteroid.isHit(_pointer)) {
+                return asteroid;
+            }
+        }
+        return null;
+    }
+    function getUfoHit(_pointer) {
+        for (const ufo of moveables) {
+            if (ufo instanceof AsteroidsGame.Ufo && ufo.isHit(_pointer)) {
+                return ufo;
             }
         }
         return null;
@@ -72,23 +93,21 @@ var AsteroidsGame;
         }
         const index = moveables.indexOf(_asteroid);
         moveables.splice(index, 1);
+        score += 5 / _asteroid.size;
+    }
+    function destroyUfo(_ufo) {
+        const index = moveables.indexOf(_ufo);
+        moveables.splice(index, 1);
+        score += 25;
     }
     function update() {
         //console.log("Update");
         AsteroidsGame.crc2.fillRect(0, 0, AsteroidsGame.crc2.canvas.width, AsteroidsGame.crc2.canvas.height);
-        for (const player of moveables) {
-            if (player instanceof AsteroidsGame.Player) {
-                player.move(1 / 50);
-                player.draw();
-            }
-        }
-        for (const asteroid of moveables) {
-            asteroid.move(1 / 50);
-            asteroid.draw();
-        }
-        if (projectile != null) {
-            projectile.move(1 / 50);
-            projectile.draw();
+        score += 0.1;
+        document.querySelector("#score").innerHTML = "0000" + Math.floor(score);
+        for (const moveable of moveables) {
+            moveable.move(1 / 50);
+            moveable.draw();
         }
     }
 })(AsteroidsGame || (AsteroidsGame = {}));

@@ -11,7 +11,7 @@ var AsteroidsGame;
             // console.log("Draw");
             AsteroidsGame.crc2.save();
             AsteroidsGame.crc2.translate(this.pos.x, this.pos.y);
-            AsteroidsGame.crc2.strokeRect(-1, -1, 1, 1);
+            AsteroidsGame.crc2.strokeRect(-1, -1, 2, 2);
             AsteroidsGame.crc2.restore();
         }
         move(_time) {
