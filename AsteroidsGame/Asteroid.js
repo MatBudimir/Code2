@@ -2,7 +2,7 @@
 var AsteroidsGame;
 (function (AsteroidsGame) {
     class Asteroid extends AsteroidsGame.Moveable {
-        constructor(_size, _pos, _vel) {
+        constructor(_size, _pos, _vel, _type) {
             super(_pos);
             if (_pos) {
                 this.pos = _pos.copy();

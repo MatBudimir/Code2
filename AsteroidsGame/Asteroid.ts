@@ -1,12 +1,10 @@
 namespace AsteroidsGame {
 
     export class Asteroid extends Moveable {
-        pos: Vector;
-        vel: Vector;
         type: number;
         size: number;
 
-        constructor(_size: number, _pos?: Vector, _vel?: Vector) {
+        constructor(_size: number, _pos?: Vector, _vel?: Vector, _type?: number) {
             super(_pos);
 
             if (_pos) {
