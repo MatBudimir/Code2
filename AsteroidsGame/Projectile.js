@@ -11,15 +11,14 @@ var AsteroidsGame;
             // console.log("Draw");
             AsteroidsGame.crc2.save();
             AsteroidsGame.crc2.translate(this.pos.x, this.pos.y);
-            AsteroidsGame.crc2.strokeRect(-1, -1, 2, 2);
+            AsteroidsGame.crc2.strokeRect(-1, -1, 3, 3);
             AsteroidsGame.crc2.restore();
         }
         move(_time) {
             super.move(_time);
             this.lifetime -= _time;
             if (this.lifetime < 0) {
-                this.vel = new AsteroidsGame.Vector(0, 0);
-                this.pos = new AsteroidsGame.Vector(2000, 2000);
+                this.expandable = true;
             }
         }
     }

@@ -22,8 +22,7 @@ namespace AsteroidsGame {
             super.move(_time);
             this.lifetime -= _time;
             if (this.lifetime < 0) {
-                this.vel = new Vector(0, 0);
-                this.pos = new Vector(2000, 2000)
+                this.expandable = true;
             }
         }
 

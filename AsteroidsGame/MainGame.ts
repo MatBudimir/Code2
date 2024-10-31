@@ -150,13 +150,21 @@ namespace AsteroidsGame
     {
         //console.log("Update");
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-        score += 0.1;
+        score += 0.01;
         document.querySelector("#score")!.innerHTML = "0000" + Math.floor(score);
 
         for (const moveable of moveables)
         {
             moveable.move(1 / 50);
             moveable.draw();
+        }
+        deleteExpandables()
+    }
+
+    function deleteExpandables(): void {
+        for (let i:number = moveables.length-1; i >= 0; i-- ){
+            if (moveables[i].expandable)
+                moveables.splice(i, 1);
         }
     }
 }

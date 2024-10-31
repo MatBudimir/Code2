@@ -8,7 +8,7 @@ var AsteroidsGame;
                 this.pos = _pos;
             }
             else {
-                this.pos = new AsteroidsGame.Vector(0, Math.random() * 1000 + 50);
+                this.pos = new AsteroidsGame.Vector(0, Math.random() * 800 + 50);
             }
             this.vel = new AsteroidsGame.Vector((-1 + (Math.round(Math.random() * 1)) * 2) * 30, 0);
             this.size = _size;

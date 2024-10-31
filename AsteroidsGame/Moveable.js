@@ -3,6 +3,7 @@ var AsteroidsGame;
 (function (AsteroidsGame) {
     class Moveable {
         constructor(_pos, _vel) {
+            this.expandable = false;
             console.log("Asteroid Constructor");
             if (_pos) {
                 this.pos = _pos;

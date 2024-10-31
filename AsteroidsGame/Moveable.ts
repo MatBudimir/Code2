@@ -3,6 +3,7 @@ namespace AsteroidsGame {
     export class Moveable {
         pos: Vector;
         vel: Vector;
+        expandable: boolean = false;
 
         constructor(_pos?: Vector, _vel?: Vector) {
             console.log("Asteroid Constructor");

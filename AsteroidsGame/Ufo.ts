@@ -11,7 +11,7 @@ namespace AsteroidsGame {
                 this.pos = _pos
             }
             else {
-                this.pos = new Vector(0, Math.random()* 1000 + 50);
+                this.pos = new Vector(0, Math.random()* 800 + 50);
             }
 
             this.vel = new Vector((-1 + (Math.round(Math.random()*1))*2) * 30, 0);

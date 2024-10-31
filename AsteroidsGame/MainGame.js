@@ -107,11 +107,18 @@ var AsteroidsGame;
     function update() {
         //console.log("Update");
         AsteroidsGame.crc2.fillRect(0, 0, AsteroidsGame.crc2.canvas.width, AsteroidsGame.crc2.canvas.height);
-        score += 0.1;
+        score += 0.01;
         document.querySelector("#score").innerHTML = "0000" + Math.floor(score);
         for (const moveable of moveables) {
             moveable.move(1 / 50);
             moveable.draw();
+        }
+        deleteExpandables();
+    }
+    function deleteExpandables() {
+        for (let i = moveables.length - 1; i >= 0; i--) {
+            if (moveables[i].expandable)
+                moveables.splice(i, 1);
         }
     }
 })(AsteroidsGame || (AsteroidsGame = {}));
